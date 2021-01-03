@@ -132,6 +132,18 @@ main {
   text-align: justify;
 }
 
+@media screen and (max-width: 1200px) {
+  main {
+    font-size: 110%;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  main {
+    font-size: 60%;
+  }
+}
+
 .modal-btn {
   font-size: 145%;
   background: #fe142f;
@@ -486,7 +498,7 @@ input[data-error]::after {
   padding: 0;
   font-size: 1rem;
   margin: 60px 0 30px;
-  font-weight: bolder;
+  font-weight: 700;
 }
 .hero-section > .btn-signup {
   display: none;
@@ -500,6 +512,7 @@ footer {
   .hero-section {
     display: block;
     box-shadow: unset;
+    min-height: 0;
   }
   .hero-content {
     background: #fff;
@@ -531,7 +544,7 @@ footer {
     padding: 12px 35px;
   }
   .copyrights {
-    margin-top: 50px;
+    margin-top: 0;
     text-align: center;
   }
 }
@@ -555,7 +568,6 @@ footer {
   }
   .hero-text {
     width: unset;
-    font-size: 1.5rem;
   }
   .hero-img img {
     border-radius: 10px;
@@ -566,16 +578,9 @@ footer {
     margin: 32px auto 10px;
     padding: 12px 35px;
   }
-  .copyrights {
-    margin-top: 50px;
-    text-align: center;
-  }
 }
 
 @media screen and (max-width: 540px) {
-  .hero-section {
-    min-height: 0;
-  }
 
   .hero-content {
     display: block;
@@ -591,7 +596,6 @@ footer {
 
   .hero-text {
     margin-top: 20px;
-    font-size: 12px;
   }
 
   .btn-signup {
@@ -607,7 +611,6 @@ footer {
 
   .copyrights {
     font-size: 9px;
-    font-weight: 700;
     margin-top: 0;
   }
 }

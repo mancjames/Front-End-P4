@@ -69,7 +69,7 @@ img {
   color: #ff0000
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1024px) {
   .topnav {
     margin: 1.5%;
   }
@@ -132,9 +132,15 @@ main {
   text-align: justify;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1024px) {
   main {
     font-size: 110%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  main {
+    font-size: 90%;
   }
 }
 
@@ -356,7 +362,7 @@ input[data-error]::after {
   display: block;
   margin: 0 auto;
   border-radius: 7px;
-  font-size: 1rem;
+  font-size: 1.3rem;
   padding: 12px 82px;
   color: #fff;
   cursor: pointer;
@@ -479,7 +485,6 @@ input[data-error]::after {
 .btn-signup {
   outline: none;
   text-transform: capitalize;
-  font-size: 1.3rem;
   padding: 15px 23px;
   margin: 0;
   margin-top: 59px;
@@ -518,6 +523,7 @@ footer {
     background: #fff;
     color: #000;
     padding: 0;
+    min-width: 0;
   }
   .hero-content::after {
     content: unset;
@@ -526,7 +532,7 @@ footer {
     display: none;
   }
   .hero-headline {
-    font-size: 4rem;
+    font-size: 5rem;
     white-space: normal;
     text-align: center;
   }
@@ -535,6 +541,7 @@ footer {
     margin-top: 20px;
   }
   .hero-img img {
+    display: block;
     border-radius: 10px;
     margin-top: 40px;
   }
@@ -550,21 +557,8 @@ footer {
 }
 
 @media screen and (max-width: 800px) {
-  .hero-content {
-    background: #fff;
-    color: #000;
-    padding: 20px;
-  }
-  .hero-content::after {
-    content: unset;
-  }
-  .hero-content .btn-signup {
-    display: none;
-  }
   .hero-headline {
-    font-size: 4.5rem;
-    white-space: normal;
-    text-align: center;
+    font-size: 3.5rem;
   }
   .hero-text {
     width: unset;
@@ -583,9 +577,7 @@ footer {
 @media screen and (max-width: 540px) {
 
   .hero-content {
-    display: block;
     min-width: 0;
-    padding: 0;
     margin-top: 20px;
   }
 
@@ -594,15 +586,9 @@ footer {
     white-space: nowrap;
   }
 
-  .hero-text {
-    margin-top: 20px;
-  }
-
   .btn-signup {
     font-size: 12px;
     padding: 10px 18px;
-    margin: 0;
-    margin-top: 59px;
   }
 
   .hero-img img {
@@ -612,6 +598,18 @@ footer {
   .copyrights {
     font-size: 9px;
     margin-top: 0;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .hero-headline {
+    font-size: 2.5rem;
+  }
+}
+
+@media screen and (max-width: 280px) {
+  .hero-headline {
+    font-size: 2rem;
   }
 }
 

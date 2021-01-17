@@ -330,6 +330,15 @@ input[data-error]::after {
   left: 21%;
   top: 19%;
 }
+.checkbox2-errormsg {
+  position: relative;
+  margin-left: 36px;
+  font-size: 12px;
+  font-weight: normal;
+  color: #fe142f;
+  display: none;
+
+}
 .close {
   position: absolute;
   right: 15px;

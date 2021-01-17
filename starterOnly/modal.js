@@ -31,6 +31,8 @@ termsCheckbox.addEventListener('change', ($event) => {
     termsErrorMsg.style.display = 'none';
   } else {
     termsErrorMsg.style.display = 'inline-block';
+    var brElement = document.getElementById('br');
+    brElement.parentNode.removeChild('brElement');
   };
 });
 

@@ -1,8 +1,12 @@
 Project 4 - Front-end Dashboard
 
-This repo contains all the starting code you need to add the functionality requirements/deliverables for Project 4.
+Aim of this project is to fork a project in progress and complete the required issues raised. These were:
 
-1. Fork this repository.
-2. you may also download the entire project to your computer, suggested editor is VS Code and you may use Docker, but it's not required.
-3. There are no dependencies
-4. Remember you need to use custom CSS and Vanilla JavaScript, no jquery, no bootstrap, etc.
+Validation in vanilla javascript for form
+creating error messages below form options if input is incorrect
+adding functionality to close button
+Making site responsive
+Create confirmation screen upon successful validation of form
+complete testing to ensure successful completion of project
+
+Link to project: https://mancjames.github.io/GameOn/

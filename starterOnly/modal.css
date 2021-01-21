@@ -336,8 +336,8 @@ input[data-error]::after {
   font-size: 12px;
   font-weight: normal;
   color: #fe142f;
-  display: none;
 }
+
 .close {
   position: absolute;
   right: 15px;

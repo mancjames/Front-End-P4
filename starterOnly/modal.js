@@ -12,10 +12,6 @@ const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
 const closeModal = document.getElementById('close');
-const locationOptions = document.getElementsByName('location');
-const locationErrorMsg = document.getElementById('location-errorMsg')
-const termsCheckbox = document.getElementById('checkbox1');
-const termsErrorMsg = document.getElementById('checkbox1-errorMsg');
 const submitBtn = document.getElementById('btnSubmit');
 
 // launch modal event
@@ -26,26 +22,98 @@ function launchModal() {
   modalbg.style.display = "block";
 }
 
-// validation - radio buttons have required in html - however javascript below shows error message when none are selected
-function validateLocation() {
-  for (let i = 0; i < locationOptions.length; i++) {
-    if (locationOptions[i].checked) {
-      locationErrorMsg.style.display = "none";
-      break
-    } else {
-      locationErrorMsg.style.display = "block";
-    }
-  }  
+// Defining a function to display error message
+function printError(elemId, hintMsg) {
+  document.getElementById(elemId).innerHTML = hintMsg;
+  document.getElementById(elemId).classList.add('errormsg');
+}
+
+// validation - when clicking submit button run all functions to check form filled in
+
+function validate(){
+
+const firstName = document.reserve.first.value;
+const lastName = document.reserve.last.value;
+const location = document.reserve.location.value;
+const email = document.reserve.email.value;
+const birthDate = document.reserve.birthdate.value;
+
+// defining error variables with a default value
+var firstNameErr = lastNameErr = emailErr = termsErr = locErr = true;
+
+//validating first name with minimum of 2 characters
+
+if (firstName.length < 2) {
+  printError("firstNameError", "Please put in 2+ characters for your first name")
+} else {
+// added a validation to make sure only alpahbetical characters are used by using a regular expression
+  var regex = /^[a-zA-Z\s]+$/;                
+  if(regex.test(firstName) === false) {
+      printError("firstNameError", "Please enter a valid name");
+  } else {
+      printError("firstNameError", "");
+      firstNameErr = false;
+  }
+}
+
+//validating surname with minimum of 2 characters
+
+if (lastName.length < 2) {
+  printError("lastNameError", "Please put in 2+ characters for your last name")
+} else {
+// added a validation to make sure only alpahbetical characters are used by using a regular expression
+  var regex = /^[a-zA-Z\s]+$/;                
+  if(regex.test(lastName) === false) {
+      printError("lastNameError", "Please enter a valid name");
+  } else {
+      printError("lastNameError", "");
+      lastNameErr = false;
+  }
+}
+
+//validating email
+
+if (email == "") {
+  printError("emailError", "Please type in your email")
+} else {
+      printError("emailError", "");
+      emailErr = false;
+}
+
+//validating date of birth
+
+if (birthDate == "") {
+  printError("birthDateError", "You must enter your date of bith")
+} else {
+      printError("birthDateError", "");
+      birthDateErr = false;
+}
+
+// validating location has been selected
+if (location == "") {
+  printError("locError", "Please select 1 option");
+} else {
+  printError("locError", "");
+  locErr = false;
+}
+
+//prevent form from being submitted if any error
+  if (firstNameErr || lastNameErr || emailErr || birthDateErr || locErr == true) {
+    return false;
+  } else {
+    return true;
+  }
 }
 
 // onclick function for radio buttons to remove error message when selected
 
 function resetMsg() {
-  locationErrorMsg.style.display = "none";
+  printError("locError", "");
 }
 
 // validation - making sure that terms and conditions are checked
 
+/*
 termsCheckbox.addEventListener('change', ($event) => {
   if ($event.target.checked) {
     termsErrorMsg.style.display = 'none';
@@ -55,11 +123,9 @@ termsCheckbox.addEventListener('change', ($event) => {
     brElement.parentNode.removeChild('brElement');
   };
 });
-
+*/
 //close form
 
 closeModal.addEventListener("click", () => {
   modalbg.style.display = "none";
 })
-
-

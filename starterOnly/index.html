@@ -60,7 +60,7 @@
               name="reserve"
               action="index.html"
               method="get"
-              onsubmit="return validate();"
+              onsubmit="return validate()"
             >
               <div
                 class="formData">
@@ -70,10 +70,10 @@
                   type="text"
                   id="first"
                   name="first"
-                  minlength="2"
-                  required
                 /><br>
+                
               </div>
+              <div id="firstNameError"></div>
               <div
                 class="formData">
                 <label>Last Name</label><br>
@@ -82,8 +82,8 @@
                   type="text"
                   id="last"
                   name="last"
-                  required
                 /><br>
+                <div id="lastNameError"></div>
               </div>
               <div
                 class="formData">
@@ -94,9 +94,9 @@
                   id="email"
                   name="email"
                   pattern=".+@.+\..+"
-                  required
                 /><br>
               </div>
+              <div id="emailError"></div>
               <div
                 class="formData">
                 <label>Birthdate</label><br>
@@ -104,14 +104,14 @@
                   class="text-control"
                   type="date"
                   id="birthdate"
-                  name="birthdate"
-                  required
+                  name = "birthdate"
                 /><br>
+                <div id="birthDateError"></div>
               </div>
               <div
                 class="formData">
                 <label>How many tournaments have you attended? </label><br>
-                <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99" required>
+                <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
               </div>
               <p class="text-label">Which location?</p>
               <div
@@ -123,7 +123,6 @@
                   name="location"
                   value="New York"
                   onclick = "return resetMsg()"
-                  required
                 />
                 <label class="checkbox-label" for="location1">
                   <span class="checkbox-icon"></span>
@@ -189,7 +188,7 @@
                   <span class="checkbox-icon"></span>
                   Portland</label
                 >
-                <label class="errormsg" for="location" id="location-errorMsg">You must select 1 option</label>
+                <div id="locError"></div>
               </div>
               
               <div
@@ -199,14 +198,12 @@
                   type="checkbox"
                   id="checkbox1"
                   checked
-                  required
                 />
                 <label class="checkbox2-label" for="checkbox1" id="checkbox1">
                   <span class="checkbox-icon"></span>
                   I have read and I agree to GameOn's terms and conditions.
                 </label>
-                <label class="errormsg" for="checkbox1" id="checkbox1-errorMsg">You must check to agree to the terms and conditions</label>
-                <br id="br">
+                <div id="termsError"></div>
                 <input 
                 class="checkbox-input" 
                 type="checkbox" 
@@ -224,7 +221,7 @@
                 class="button"
                 value="Go"
                 id="btnSubmit"
-                onclick = "return validateLocation()"
+                
               />
             </form>
           </div>

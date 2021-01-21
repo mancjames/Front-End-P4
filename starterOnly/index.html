@@ -60,7 +60,7 @@
               name="reserve"
               action="index.html"
               method="get"
-              onsubmit="return validate()"
+              id = "form"
             >
               <div
                 class="formData">
@@ -111,8 +111,9 @@
               <div
                 class="formData">
                 <label>How many tournaments have you attended? </label><br>
-                <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
+                <input type="number" class="text-control" id="quantity" name="quantity">
               </div>
+              <div id="tournamentError"></div>
               <p class="text-label">Which location?</p>
               <div
                 class="formData">
@@ -216,14 +217,28 @@
                 <br>
               </div>
               <input
-                class="btn-submit"
+                class="button btn-submit"
                 type="submit"
-                class="button"
                 value="Go"
                 id="btnSubmit"
-                
+                onclick = "return validate();"
               />
             </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="bground-confirmation">
+        <div class="content">
+          <div class="modal-body">
+            <p class="confirmation-text">Thank you for submitting your registration details</p>
+            <input
+                class="button btn-submit"
+                type="button"
+                value = "Close"
+                id="btnConfirmation"
+                
+              />
           </div>
         </div>
       </div>

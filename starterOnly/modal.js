@@ -8,11 +8,17 @@ function editNav() {
 }
 
 // DOM Elements
+const form = document.getElementById('form')
 const modalbg = document.querySelector(".bground");
+const modalbg2 = document.querySelector(".bground-confirmation");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
 const closeModal = document.getElementById('close');
 const submitBtn = document.getElementById('btnSubmit');
+const confirmationBtn = document.getElementById('btnConfirmation')
+
+
+
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -21,6 +27,7 @@ modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 function launchModal() {
   modalbg.style.display = "block";
 }
+
 
 // Defining a function to display error message
 function printError(elemId, hintMsg) {
@@ -32,14 +39,17 @@ function printError(elemId, hintMsg) {
 
 function validate(){
 
+//DOM elements for validation
 const firstName = document.reserve.first.value;
 const lastName = document.reserve.last.value;
 const location = document.reserve.location.value;
 const email = document.reserve.email.value;
 const birthDate = document.reserve.birthdate.value;
+const tournament = document.reserve.quantity.value;
+const terms = document.getElementById('checkbox1');
 
 // defining error variables with a default value
-var firstNameErr = lastNameErr = emailErr = termsErr = locErr = true;
+var firstNameErr = lastNameErr = emailErr = birthDateErr  = tournamentErr = locErr = termsErr = false; //change to true
 
 //validating first name with minimum of 2 characters
 
@@ -89,6 +99,16 @@ if (birthDate == "") {
       birthDateErr = false;
 }
 
+//validating to make sure tournament number is a minimum of 0 
+
+  if (tournament == "") {
+    printError("tournamentError", "Please enter how many tournaments you've attended")
+  } else {
+        printError("tournamentError", "");
+        tournamentErr = false;
+  }
+
+
 // validating location has been selected
 if (location == "") {
   printError("locError", "Please select 1 option");
@@ -97,13 +117,35 @@ if (location == "") {
   locErr = false;
 }
 
+// validating tems and conditions has been selected
+
+if (!terms.checked) {
+    printError("termsError", "You must check to agree to terms and conditions.");
+  } else {
+    printError("termsError", "");
+    termsErr = false;
+  };
+
 //prevent form from being submitted if any error
-  if (firstNameErr || lastNameErr || emailErr || birthDateErr || locErr == true) {
+
+  if (firstNameErr || lastNameErr || emailErr || birthDateErr || tournamentErr || locErr || termsErr  == true) {
     return false;
   } else {
     return true;
   }
 }
+
+//Adding event listener to make confirmation screen appear
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    modalbg.style.display = "none";
+    modalbg2.style.display = "block";
+  });
+
+  //Adding event listener to make confirrmation screen close
+  confirmationBtn.addEventListener('click', () => {
+    modalbg2.style.display = "none";
+  })
 
 // onclick function for radio buttons to remove error message when selected
 
@@ -111,21 +153,12 @@ function resetMsg() {
   printError("locError", "");
 }
 
-// validation - making sure that terms and conditions are checked
-
-/*
-termsCheckbox.addEventListener('change', ($event) => {
-  if ($event.target.checked) {
-    termsErrorMsg.style.display = 'none';
-  } else {
-    termsErrorMsg.style.display = 'inline-block';
-    var brElement = document.getElementById('br');
-    brElement.parentNode.removeChild('brElement');
-  };
-});
-*/
 //close form
 
 closeModal.addEventListener("click", () => {
   modalbg.style.display = "none";
 })
+
+
+
+

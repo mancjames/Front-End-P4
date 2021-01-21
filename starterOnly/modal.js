@@ -49,7 +49,7 @@ const tournament = document.reserve.quantity.value;
 const terms = document.getElementById('checkbox1');
 
 // defining error variables with a default value
-var firstNameErr = lastNameErr = emailErr = birthDateErr  = tournamentErr = locErr = termsErr = false; //change to true
+var firstNameErr = lastNameErr = emailErr = birthDateErr  = tournamentErr = locErr = termsErr = true;
 
 //validating first name with minimum of 2 characters
 

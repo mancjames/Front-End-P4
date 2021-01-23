@@ -86,10 +86,14 @@ if (lastName.length < 2) {
 if (email == "") {
   printError("emailError", "Please type in your email")
 } else {
+  var regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  if (regex.test(email) == false){
+    printError("emailError", "Please enter a valid email address")
+  } else {
       printError("emailError", "");
       emailErr = false;
+  }
 }
-
 //validating date of birth
 
 if (birthDate == "") {

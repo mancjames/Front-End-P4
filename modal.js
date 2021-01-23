@@ -97,10 +97,10 @@ if (email == "") {
 //validating date of birth
 
 if (birthDate == "") {
-  printError("birthDateError", "You must enter your date of bith")
+  printError("birthDateError", "You must enter your date of birth")
 } else {
-      printError("birthDateError", "");
-      birthDateErr = false;
+    printError("birthDateError", "");
+      birthDateErr = false; 
 }
 
 //validating to make sure tournament number is entered 
@@ -153,6 +153,7 @@ if (!terms.checked) {
   //Adding event listener to make confirrmation screen close
   confirmationBtn.addEventListener('click', () => {
     modalbg2.style.display = "none";
+    form.submit();
   })
 
 // onclick function for radio buttons to remove error message when selected

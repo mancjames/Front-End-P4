@@ -506,6 +506,7 @@ input[data-error]::after {
   height: 100%;
   display: block;
   padding: 0;
+  margin: 0;
 }
 .copyrights {
   color: #fe142f;

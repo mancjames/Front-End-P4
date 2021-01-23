@@ -99,15 +99,19 @@ if (birthDate == "") {
       birthDateErr = false;
 }
 
-//validating to make sure tournament number is a minimum of 0 
+//validating to make sure tournament number is entered 
 
   if (tournament == "") {
     printError("tournamentError", "Please enter how many tournaments you've attended")
   } else {
+    //validating to make sure tournament number isn't less than 0
+    if (tournament < 0) {
+      printError("tournamentError", "Minimum number of tournaments allowed is 0")
+    } else {
         printError("tournamentError", "");
         tournamentErr = false;
-  }
-
+        }
+      }
 
 // validating location has been selected
 if (location == "") {

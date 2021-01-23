@@ -28,6 +28,7 @@ p {
 
 img {
   padding-right: 1rem;
+  margin: 5px;
 }
 
 .topnav {
@@ -80,7 +81,7 @@ img {
 
   .header-logo img {
     width: 200px;
-    margin: 15px;
+    margin: 10px 15px;
   }
 }
 
